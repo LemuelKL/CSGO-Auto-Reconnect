@@ -8,6 +8,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',
 
 log_path = "C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/console.log"
 server_ip = "csgoserveriphere"
+server_pwd = "csgoserverpasswordhere"
 dc_msg = "Disconnect: Relog to continue.\n"
 timeout_msg = "Server connection timed out.\n"
 sleep_sec = 10
@@ -29,8 +30,8 @@ def scan():
         return False
                 
 def connect_to_ip():
-    logging.info("Connecting to IP: " + server_ip)
-    webbrowser.open_new("steam://connect/" + server_ip)
+    logging.info("Connecting to {ip} with password {pwd}...".format(ip = server_ip, pwd = server_pwd))
+    webbrowser.open_new("steam://connect/{ip}/{pwd}".format(ip = server_ip, pwd = server_pwd))
 
 def program():
     while 1 == 1:
